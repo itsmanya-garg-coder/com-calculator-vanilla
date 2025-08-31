@@ -5,11 +5,12 @@ let first=0,operator,sec,lastSec;
 let solved=false;
 for(let item of buttons){
     item.addEventListener('click',(e)=>{
+
         // make the screen stick to right side
         screen.scrollLeft = screen.scrollWidth;
         miniScreen.scrollLeft = miniScreen.scrollWidth;
-
-        let buttonText=e.target.innerText;
+        // trim to not write modulo
+        let buttonText=e.target.childNodes[0].nodeValue.trim();
         if(solved==true){
             screen.value="";
             solved=false;
@@ -18,7 +19,6 @@ for(let item of buttons){
             // Prevent multiple decimals in the same number
             if (!screen.value.includes(".")) {
                 screen.value += ".";
-                miniScreen.value += ".";
             }
         }
         else if(!isNaN(buttonText)&&operator==null){
@@ -66,7 +66,6 @@ for(let item of buttons){
             //     if(operator==null){
             //         screen.value=first;
             //         miniScreen.value=first;
-                    
             //     }
             //     else if(operator=='*'){
             //         screen.value=screen.value=solve(first,operator,sec/100.0);

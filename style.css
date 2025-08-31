@@ -67,3 +67,9 @@ button {
 button:hover {
     background-color: darkorange;
 }
+button .small-text {
+    font-size: 0.5em; 
+    display:block; 
+    font-weight: 5;
+    line-height: 1; 
+}
